@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hibernate-core-4.1.0.Final">
+    <CLASSES>
+      <root url="jar://F:/文挡/struts2spring3hibernate4/WebContent/WEB-INF/lib/hibernate-core-4.1.0.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

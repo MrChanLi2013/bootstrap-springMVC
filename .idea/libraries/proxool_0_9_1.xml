@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="proxool-0.9.1">
+    <CLASSES>
+      <root url="jar://E:/EclipseWorkspace/struts2spring3hibernate4/WebContent/WEB-INF/lib/proxool-0.9.1.jar!/" />
+      <root url="jar://E:/EclipseWorkspace/struts2spring3hibernate4/WebContent/WEB-INF/lib/proxool-cglib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

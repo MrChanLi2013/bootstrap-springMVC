@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery File Upload Example</title>
+    <script type="text/javascript" src="/js/jquery-2.0.0.min.js"></script>
+    <script src="/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/js/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="/js/canvas-to-blob.min.js"></script>
+
+    <!--<script src="js/jquery.iframe-transport.js"></script>-->
+    <script src="/js/jquery.fileupload.js"></script>
+    <script src="/js/tmpl.min.js"></script>
+
+    <!-- bootstrap just to have good looking page -->
+    <script src="/js/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/fileuploader.css" type="text/css" rel="stylesheet"/>
+
+    <!-- we code these -->
+    <!--<link href="css/dropzone.css" type="text/css" rel="stylesheet" />-->
+    <!--<script src="js/myuploadfunction.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            console.info($("#d").val());
+            console.info($("#d").propertyName);
+//            $("#d").change(function () {
+//                var name = $("#d").val();
+//                if (name != undefined) {
+//                    $("#uploaded-files").append(
+//                            "<tr>" +
+//                                    "<td>" + name + "</td>" +
+//                                    "<td style='width: 40%;'><div class='progress progress-striped active'>" +
+//                                    "<div class='bar' style='width: 60%;'>" +
+//                                    "</div></div>" +
+//                                    "</td>" +
+//                                    "<td style='text-align: right;width: 20%;'>" +
+//                                    "<button type='button' class='btn btn-warning'>" +
+//                                    "<i class='icon-arrow-left'></i>上传</button>" +
+//                                    "<button type='button' class='btn btn-warning' style='margin-left: 15px;'><i class='icon-arrow-right'></i>取消</button>" +
+//                                    "</td>" +
+//                                    "</tr>"
+//                    );
+//                }
+//            });
+            $("#d").fileupload({
+                dataType: 'json',
+                url: '../controller/upload.do',
+                autoUpload: true,
+                method: 'post',
+                timeout: 10000000000,
+                maxChunkSize: 10000000000000,
+                cache: false,
+                done: function (e, data) {
+                    $("#uploaded-files tr:has(td)").remove();
+                    $.each(data.result, function (index, file) {
+                        $("#uploaded-files").append(
+                                "<tr>" +
+                                        "<td>" + file.fileName + "</td>" +
+                                        "<td>" + file.fileSize + "</td>" +
+                                        "<td>" + file.fileType + "</td>" +
+                                        "<td style='text-align: right;width: 20%;'>" +
+                                        "<a href='../controller/download.do' class='btn btn-warning'>" +
+                                        "<i class='icon-arrow-left'></i>下载</a>" +
+                                        "<button type='button' class='btn btn-warning' style='margin-left: 15px;'><i class='icon-arrow-right'></i>取消</button>" +
+                                        "</td>" +
+                                        "</tr>"
+                        );
+                    });
+                    $("#d").val("");
+//                    $('#progress .bar').css(
+//                            'width',
+//                            0 + '%'
+//                    );
+                },
+
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .bar').css(
+                            'width',
+                            progress + '%'
+                    );
+                }
+            });
+        });
+        $(function () {
+            $('#fileupload').fileupload({
+                dataType: 'json',
+
+                done: function (e, data) {
+                    $("tr:has(td)").remove();
+                    $.each(data.result, function (index, file) {
+
+                        $("#uploaded-files").append(
+                                $('<tr/>')
+                                        .append($('<td/>').text(file.fileName))
+                                        .append($('<td/>').text(file.fileSize))
+                                        .append($('<td/>').text(file.fileType))
+                                        .append($('<td/>').html("<a href='rest/controller/get/" + index + "'>Click</a>"))
+                        )//end $("#uploaded-files").append()
+                    });
+                },
+
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .bar').css(
+                            'width',
+                            progress + '%'
+                    );
+                },
+
+                dropZone: $('#dropzone')
+            });
+        });
+    </script>
+    <style>
+        #dropzone {
+            background: #ccccc;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #dropzone.in {
+            width: 600px;
+            height: 200px;
+            line-height: 200px;
+            font-size: larger;
+        }
+
+        #dropzone.hover {
+            background: lawngreen;
+        }
+
+        #dropzone.fade {
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>Spring MVC - jQuery File Upload</h1>
+
+<div style="width:60%;padding:20px">
+
+<span class="btn btn-success fileinput-button">
+    <i class="icon-arrow-up"></i>
+    <span>添加文件</span>
+    <input type="file" id="d" name="files[]" multiple/>
+</span>
+    <button class="btn btn-danger"><i class="icon-chevron-up"></i>全部上传</button>
+    <div class="progress progress-striped active" id="progress">
+        <div class="bar" style="width: 0%;"></div>
+    </div>
+    <!--<div id="progress">-->
+    <!--<div style="width: 0%;"></div>-->
+    <!--</div>-->
+    <br/>
+    <table id="uploaded-files" class="table" style="width: 100%;">
+
+    </table>
+
+</div>
+
+<span class="btn btn-success fileinput-button">
+    <i class="icon-arrow-up"></i>
+    <span>添加文件</span>
+    <input type="file" id="" name="files[]" multiple/>
+</span>
+
+<table role="presentation" class="table table-striped">
+    <tbody class="files">
+    </tbody>
+</table>
+<script type="text/x-tmpl">
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name"></p>
+
+            <div><span class="label label-danger">Error</span></div>
+        </td>
+        <td>
+            <p class="size"></p>
+
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                 aria-valuenow="0">
+                <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+        </td>
+        <td>
+            <button class="btn btn-primary start">
+                <i class="glyphicon glyphicon-upload"></i>
+                <span>Start</span>
+            </button>
+            <button class="btn btn-warning cancel">
+                <i class="glyphicon glyphicon-ban-circle"></i>
+                <span>Cancel</span>
+            </button>
+        </td>
+    </tr>
+
+</script>
+</body>
+</html>
