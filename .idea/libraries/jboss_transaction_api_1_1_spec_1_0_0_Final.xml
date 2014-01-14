@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jboss-transaction-api_1.1_spec-1.0.0.Final">
-    <CLASSES>
-      <root url="jar://F:/hibernate-release-4.1.8.Final/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

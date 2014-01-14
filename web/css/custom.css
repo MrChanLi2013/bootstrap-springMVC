@@ -9,3 +9,34 @@
     border-top: 1px solid #FFFFFF;
     height: 31px;
 }
+
+.footer {
+    background-color: #333333;
+    border-top: 1px solid #E5E5E5;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+}
+
+.custom-a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 12px;;
+}
+
+.custom-a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.bottom-p {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.bottom-p1 {
+    margin-top: 10px;
+    color: #808080;
+    font-size: 12px;
+}
