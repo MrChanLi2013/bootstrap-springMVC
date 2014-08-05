@@ -78,8 +78,8 @@
                                               href="http://wp.qq.com/wpa/qunwpa?idkey=d2d8c41a592b8d5ddcdf67855c8de6361f38388f5c102aa4c83f52d0fd913740"><img
                     border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="617" title="617"></a></span>
             <span style="font-size: 13px;"><a target="_blank"
-                                              href="http://wpa.qq.com/msgrd?v=3&uin=467943798&site=qq&menu=yes"><img
-                    border="0" src="http://wpa.qq.com/pa?p=2:467943798:52" alt="点击这里给我发消息"
+                                              href="http://wpa.qq.com/msgrd?v=3&uin=764157216&site=qq&menu=yes"><img
+                    border="0" src="http://wpa.qq.com/pa?p=2:764157216:52" alt="点击这里给我发消息"
                     title="点击这里给我发消息"/></a></span>
         </div>
         <div class="span5">
