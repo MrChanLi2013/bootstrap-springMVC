@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 @Service("CommonService")
 public class CommonService implements ICommonService {
 
-    @Autowired
-    @Qualifier("CommonHibernateDao")
+    @Autowired(required = true)
+    @Qualifier(value = "CommonHibernateDao")
     private ICommonDao commonDao;
 
     @Override

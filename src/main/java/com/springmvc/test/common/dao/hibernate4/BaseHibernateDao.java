@@ -14,8 +14,8 @@ import java.lang.reflect.ParameterizedType;
 public class BaseHibernateDao<M extends Serializable, PK extends Serializable> implements IBaseDao<M, PK> {
     private final Class<M> entityClass;
     private String pkName = null;
-    @Autowired
-    @Qualifier("sessionFactory")
+    @Autowired(required = true)
+    @Qualifier(value = "sessionFactory")
     private SessionFactory sessionFactory;
 
     public BaseHibernateDao() {

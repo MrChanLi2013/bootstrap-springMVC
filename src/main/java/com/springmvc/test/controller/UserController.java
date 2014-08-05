@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 
 public class UserController {
-    @Autowired
-    @Qualifier("UserService")
+    @Autowired(required = true)
+    @Qualifier(value = "UserService")
     private UserService userService;
 
     @RequestMapping(value = "user/add", method = {RequestMethod.GET})
@@ -26,6 +26,7 @@ public class UserController {
 
     @RequestMapping(value = "user/register", method = {RequestMethod.GET})
     public String register() {
+        System.out.println("---------------");
         return "user/register";
     }
 }

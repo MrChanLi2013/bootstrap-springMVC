@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 @Component("CommonHibernateDao")
 public class CommonHibernateDao implements ICommonDao {
 
-    @Autowired
-    @Qualifier("sessionFactory")
+    @Autowired(required = true)
+    @Qualifier(value = "sessionFactory")
     private SessionFactory sessionFactory;
     public Session getSession(){
         return sessionFactory.getCurrentSession();

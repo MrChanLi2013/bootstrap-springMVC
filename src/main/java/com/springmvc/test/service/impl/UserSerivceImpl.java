@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 public class UserSerivceImpl extends BaseService<User, Integer> implements UserService {
     private UserDao userDao;
 
-    @Autowired
-    @Qualifier("UserDao")
+    @Autowired(required = true)
+    @Qualifier(value = "UserDao")
     @Override
     public void setBaseDao(IBaseDao<User, Integer> userDao) {
         this.baseDao = userDao;
