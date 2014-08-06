@@ -2,9 +2,9 @@ package com.springmvc.test.entity;
 
 import com.springmvc.test.common.AbstractEntity;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "t_user")
@@ -14,13 +14,22 @@ public class User extends AbstractEntity {
     @Column(name = "id", nullable = false)
     private int id;
     @Column(nullable = false, name = "user_name")
-    @Pattern(regexp = "[A-Za-z0-9]{5,20}", message = "{username}")
+    @NotEmpty(message = "用户名不能为空")
     private String username;
     @Column(name = "pass_word")
     private String password;
     @Column(name = "email")
     @Email(message = "{email}")
     private String email;
+
+    public User() {
+    }
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
     public int getId() {
         return id;

@@ -1,9 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: chenli
-  Date: 13-9-17
-  Time: 下午4:11
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../common/common-tag.jsp" %>
 <html>
@@ -25,7 +19,7 @@
         </div>
     </div>
     <div class="container" style="margin-top: 20px;margin-left: 100px;">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/user/add.do" method="post">
             <div class="control-group">
                 <label class="control-label" for="username">用户名：</label>
 
