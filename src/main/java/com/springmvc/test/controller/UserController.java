@@ -19,13 +19,13 @@ public class UserController extends BaseValidator {
     private UserService userService;
 
     @RequestMapping(value = "user/add", method = {RequestMethod.POST})
-    public String add(User model, Map<String, String> error) {
+    public String add(User model, Map<String, Map> error) {
         Map<String, String> errorMessages = validate(model);
         if (errorMessages.isEmpty()) {
             userService.save(model);
             return "index";
         } else {
-            error.putAll(errorMessages);
+            error.put("error",errorMessages);
             return "user/register";
         }
 
