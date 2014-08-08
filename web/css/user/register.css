@@ -27,6 +27,32 @@
     width: 200px;
 }
 
-.checklist li{
+.checklist li {
     font-size: 12px;
+}
+
+.reg-sms {
+    width: 258px;
+    height: 208px;
+    border: 1px solid #d1eeff;
+    background-color: #f5fbff;
+
+}
+
+.reg-sms .reg-sms-title {
+    margin: 0px;
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e6edf2;
+    font-size: 14px;
+    color: #666;
+}
+
+.reg-sms-content p {
+    color: #666;
+    font-size: 12px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    margin: 0 10px;
 }

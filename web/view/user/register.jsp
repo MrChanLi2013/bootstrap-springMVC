@@ -54,6 +54,7 @@
                                         </ul>
                                     </div>
                                 </span>
+
                             <div class="controls">
                                 <input type="text" name="username" id="username"/>
                             </div>
@@ -73,12 +74,14 @@
                                         </ul>
                                     </div>
                                 </span>
+
                             <div class="controls">
                                 <input type="password" name="password" id="password"/>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="confirm-password"><abbr title="required">*</abbr>确认密码：</label>
+                            <label class="control-label" for="confirm-password"><abbr
+                                    title="required">*</abbr>确认密码：</label>
 
                             <div class="controls">
                                 <input type="password" name="confirmPwd" id="confirm-password"/>
@@ -92,7 +95,8 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="verificationCode"><abbr title="required">*</abbr>验证码：</label>
+                            <label class="control-label" for="verificationCode"><abbr
+                                    title="required">*</abbr>验证码：</label>
 
                             <div class="controls">
                                 <input type="text" name="verificationCode" id="verificationCode"/>
@@ -112,7 +116,17 @@
                     </form>
                 </div>
             </div>
-            <div class="span4"></div>
+            <div class="span4">
+                <div class="reg-sms">
+                    <h3 class="reg-sms-title">公告：</h3>
+
+                    <div class="reg-sms-content">
+                        <p>注册须知：这里是一群贪玩的女人，一群好的男人，一所快乐的家，一个情感停泊的中转码头，请思考思考思考在思考之后加入~~~</p>
+                        <p>①未满18周岁人士请在指导下发帖。</p>
+                        <p>②本论坛非管理人员，不得在论坛内泡本群的PLMM...</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
