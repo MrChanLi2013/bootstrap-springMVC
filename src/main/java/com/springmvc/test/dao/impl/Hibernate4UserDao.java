@@ -14,7 +14,6 @@ public class Hibernate4UserDao extends BaseHibernateDao<User, Integer> implement
     @Override
     public User findByName(String name) {
         List list = getSession().createQuery("from User u where u.username = ?").setString(0, name).list();
-        System.out.println(list.get(0));
         Checker.ensureNotEmpty(list, "未找到用户名为" + name + "的用户");
         return (User) list.get(0);
     }
