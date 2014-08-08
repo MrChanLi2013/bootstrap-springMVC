@@ -4,6 +4,8 @@
 <head>
     <title>用户注册</title>
     <%@include file="../common/import.jsp" %>
+    <script type="text/javascript" src="/js/user/register.js"></script>
+    <link href="/css/user/register.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
 <%@include file="../common/top.jsp" %>
@@ -35,23 +37,48 @@
                     </div>
                 </c:if>
                 <div>
-                    <form class="form-horizontal" action="/user/add.do" method="post">
+                    <form class="form-horizontal" action="/user/add.do" method="post" id="register-from">
                         <div class="control-group">
-                            <label class="control-label" for="username">用户名：</label>
-
+                            <label class="control-label" for="username"><abbr title="required">*</abbr>用户名：</label>
+                                <span id="checklist-username"
+                                      style="position: absolute;left: 685px;zoom: 1;z-index: 20;display: none;">
+                                    <div class="checklist-wrapper">
+                                    <span class="checklist-arrow">
+                                        <em class="arrowa">◆</em>
+                                        <em class="arrowb">◆</em>
+                                    </span>
+                                        <ul class="checklist">
+                                            <li class="checklist-item">长度为2~16个字符</li>
+                                            <li class="checklist-item">支持数字,大小写字母和汉字</li>
+                                            <li class="checklist-item">不允许有空格</li>
+                                        </ul>
+                                    </div>
+                                </span>
                             <div class="controls">
                                 <input type="text" name="username" id="username"/>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="password">密码：</label>
-
+                            <label class="control-label" for="password"><abbr title="required">*</abbr>密码：</label>
+                            <span id="checklist-pwd"
+                                  style="position: absolute;left: 685px;zoom: 1;z-index: 20;display: none;">
+                                    <div class="checklist-wrapper">
+                                    <span class="checklist-arrow">
+                                        <em class="arrowa">◆</em>
+                                        <em class="arrowb">◆</em>
+                                    </span>
+                                        <ul class="checklist">
+                                            <li class="checklist-item">长度为6~16个字符</li>
+                                            <li class="checklist-item">不允许有空格</li>
+                                        </ul>
+                                    </div>
+                                </span>
                             <div class="controls">
                                 <input type="password" name="password" id="password"/>
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="confirm-password">确认密码：</label>
+                            <label class="control-label" for="confirm-password"><abbr title="required">*</abbr>确认密码：</label>
 
                             <div class="controls">
                                 <input type="password" name="confirmPwd" id="confirm-password"/>
@@ -65,7 +92,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="verificationCode">验证码：</label>
+                            <label class="control-label" for="verificationCode"><abbr title="required">*</abbr>验证码：</label>
 
                             <div class="controls">
                                 <input type="text" name="verificationCode" id="verificationCode"/>

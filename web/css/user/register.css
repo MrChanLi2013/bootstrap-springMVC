@@ -1,0 +1,32 @@
+.checklist-arrow em {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+}
+
+.checklist-arrow em.arrowa {
+    color: #ddd;
+    left: 0;
+}
+
+.checklist-arrow em.arrowb {
+    color: #f9f9f9;
+    left: 1px;
+}
+
+.checklist {
+    list-style: none;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 1px #efefef;
+    -moz-box-shadow: 1px 1px 1px #efefef;
+    -webkit-box-shadow: 1px 1px 1px #efefef;
+    background: #f9f9f9;
+    width: 200px;
+}
+
+.checklist li{
+    font-size: 12px;
+}

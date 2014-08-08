@@ -16,6 +16,7 @@ public class User extends AbstractEntity {
     private int id;
     @Column(nullable = false, name = "user_name")
     @NotEmpty(message = "用户名不能为空")
+    @Pattern(regexp = "^[A-Za-z0-9\\\\u4e00-\\\\u9fa5]{2,16}$",message = "用户名输入不合法")
     private String username;
     @Column(name = "pass_word")
     @Pattern(regexp = "^[^ ]{6,16}$",message = "密码输入不合法")
