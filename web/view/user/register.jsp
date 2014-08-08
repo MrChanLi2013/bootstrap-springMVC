@@ -22,7 +22,7 @@
     <div class="container" style="margin-left: 100px;">
         <div class="row-fluid">
             <div class="span7">
-                <c:if test="${error != ''}">
+                <c:if test="${error != null}">
                     <div class="alert alert-block alert-error" role="alert" style="font-size: 13px">
                         <a class="close" data-dismiss="alert" href="#">x</a>
 

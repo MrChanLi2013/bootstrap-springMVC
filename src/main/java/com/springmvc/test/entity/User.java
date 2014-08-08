@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "t_user")
@@ -17,10 +18,18 @@ public class User extends AbstractEntity {
     @NotEmpty(message = "用户名不能为空")
     private String username;
     @Column(name = "pass_word")
+    @Pattern(regexp = "^[^ ]{6,16}$",message = "密码输入不合法")
     private String password;
     @Column(name = "email")
-    @Email(message = "{email}")
+    @Email(message = "邮件格式不合法")
     private String email;
+    @Transient
+    private String confirmPwd;
+    /**
+     * 验证码
+     */
+    @Transient
+    private String verificationCode;
 
     public User() {
     }
@@ -61,5 +70,21 @@ public class User extends AbstractEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getConfirmPwd() {
+        return confirmPwd;
+    }
+
+    public void setConfirmPwd(String confirmPwd) {
+        this.confirmPwd = confirmPwd;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
     }
 }

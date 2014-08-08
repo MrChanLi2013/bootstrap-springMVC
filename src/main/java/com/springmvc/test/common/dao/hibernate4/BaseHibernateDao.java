@@ -36,4 +36,8 @@ public class BaseHibernateDao<M extends Serializable, PK extends Serializable> i
     public PK save(M model) {
         return (PK) getSession().save(model);
     }
+
+    public void releaseSession() {
+        getSession().close();
+    }
 }
