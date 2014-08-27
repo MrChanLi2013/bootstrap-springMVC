@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("UserService")
-public class UserSerivceImpl extends BaseService<User, Integer> implements UserService {
+public class UserServiceImpl extends BaseService<User, Integer> implements UserService {
     private UserDao userDao;
 
     @Autowired(required = true)

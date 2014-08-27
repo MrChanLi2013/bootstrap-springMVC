@@ -1,0 +1,12 @@
+#myCarousel .carousel-inner .item img {
+    width: 1170px;
+    height: 220px;
+}
+
+.news li a{
+    color: #333333;
+}
+
+.news li span {
+    float: right;
+}
