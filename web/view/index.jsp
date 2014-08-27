@@ -39,16 +39,16 @@
     <div class="row-fluid">
         <div class="span5">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab"><strong>学校新闻</strong></a></li>
+                <li class="active"><a href="#snews" data-toggle="tab"><strong>学校新闻</strong></a></li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="home">
+                <div class="tab-pane active" id="snews">
                     <c:if test="${newsList != null}">
                         <ul class="news">
                             <c:forEach items="${newsList}" var="news">
                                 <li>
                                     <a href="#">${news.title}</a>
-                                    <span><fmt:formatDate value="${news.createdAt}" pattern="yyyy-MM-dd" /></span>
+                                    <span><fmt:formatDate value="${news.createdAt}" pattern="yyyy-MM-dd"/></span>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -57,8 +57,30 @@
             </div>
         </div>
         <div class="span5">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#sgonggao" data-toggle="tab"><strong>通知公告</strong></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="sgonggao">
+                    <ul class="news">
+                        <li>
+                            <a href="#">重庆三峡学院2014级新生入学报到安排</a>
+                            <span>2014-08-21</span>
+                        </li>
+                        <li>
+                            <a href="#">关于校园网临时中断的通知</a>
+                            <span>2014-08-18</span>
+                        </li>
+                        <li>
+                            <a href="#">关于数字校园数据库维护通知</a>
+                            <span>2014-08-12</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="span2">
+            <img src="../img/xiaoxun.jpg" style="height: 240px;width: 200px">
         </div>
     </div>
 </div>
