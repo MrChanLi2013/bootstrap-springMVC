@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import java.util.Map;
 
 public class UserValidator extends BaseValidator {
+    private static final String ERROR_CODE = "验证码输入不正确";
+    private static final String ERORR_CONFIRM_PWD = "两次输入的密码不相同";
+    private static final String ERROR_REPEAT_USERNAME = "用户名已经被注册";
     @Autowired(required = true)
     @Qualifier(value = "UserDao")
     private UserDao userDao;
-
-    private static final String ERROR_CODE = "验证码输入不正确";
-    private static final String ERORR_CONFIRM_PWD = "两次输入的密码不相同";
 
     protected Map<String, String> validate(User user, String code) {
         Map<String, String> errorMessageMap = super.validate(user);
@@ -27,8 +27,8 @@ public class UserValidator extends BaseValidator {
     private void validateSameUserName(User user, Map<String, String> errorMessageMap) {
         try {
             userDao.findByName(user.getUsername());
-            errorMessageMap.put("user","用户名已经被注册");
-        } catch (RecordNotFound e) {
+            errorMessageMap.put("user", ERROR_REPEAT_USERNAME);
+        } catch (RecordNotFound ignore) {
         }
     }
 
